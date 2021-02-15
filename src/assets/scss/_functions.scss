@@ -1,0 +1,12 @@
+@function darker($color) {
+  @return darken($color, $darkness-percentage);
+}
+
+@function lighter($color) {
+  @return lighten($color, $lightness-percentage);
+}
+
+@function opaque($color) {
+  @debug "LOL";
+  @return transparentize($color, $lightness-percentage/100);
+}

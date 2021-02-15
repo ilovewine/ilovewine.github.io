@@ -1,0 +1,16 @@
+$primary: #2D5B10;
+$success: #ABC84E;
+$danger: #8D0C0C;
+$warn: #BBA91D;
+$dark: #0B1903;
+
+$lightness-percentage: 15%;
+$darkness-percentage: $lightness-percentage;
+
+:export {
+  primary: $primary;
+  success: $success;
+  danger: $danger;
+  warn: $warn;
+  dark: $dark;
+}

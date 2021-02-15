@@ -1,14 +1,14 @@
 <template>
   <vs-row>
     <vs-col w="12">
-      Home body
+      footer
     </vs-col>
   </vs-row>
 </template>
 
 <script>
 export default {
-  name: "Home",
+  name: "Footer",
   components: {},
   data() {
     return {};

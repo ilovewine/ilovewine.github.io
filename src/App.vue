@@ -1,18 +1,47 @@
 <template>
-  <div class="app">
-    <h1 class="heading">Soon</h1>
-  </div>
+  <vs-row id="app" align="space-between" direction="column">
+    <vs-col w="12">
+      <Header class="sticky-top"></Header>
+    </vs-col>
+    <vs-col w="12" id="main">
+      <main>
+        <router-view></router-view>
+      </main>
+    </vs-col>
+    <vs-col w="12">
+      <Footer></Footer>
+    </vs-col>
+  </vs-row>
 </template>
 
+<script>
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+export default {
+  name: "App",
+  components: {
+    Footer,
+    Header
+  },
+  data() {
+    return {};
+  },
+  methods: {},
+  watch: {},
+  computed: {}
+};
+</script>
+
 <style lang="scss">
-h1 {
-  position: absolute;
-  font-size: 10rem;
-  font-family: Monospaced, sans-serif;
-  letter-spacing: 25px;
-  margin: 0;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+#app {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+#main {
+  flex: 1 0 auto;
+  height: 200vh;
 }
 </style>
