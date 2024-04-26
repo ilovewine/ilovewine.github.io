@@ -13,11 +13,11 @@
     <main>
       <NuxtPage />
     </main>
-    <the-footer />
+    <the-footer/>
   </Body>
 </template>
 
 <script setup lang="ts">
-  import TheHeader from "./components/header/TheHeader.vue";
-  import TheFooter from "./components/footer/TheFooter.vue";
+import TheHeader from './components/header/TheHeader.vue'
+import TheFooter from './components/footer/TheFooter.vue';
 </script>
