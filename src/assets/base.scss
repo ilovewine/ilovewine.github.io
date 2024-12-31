@@ -1,11 +1,11 @@
 /* color palette from <https://github.com/vuejs/theme> */
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
+  --vt-c-white: #e1f3e1;
+  --vt-c-white-soft: #e5e8e4;
   --vt-c-white-mute: #f2f2f2;
 
-  --vt-c-black: #0a3213;
-  --vt-c-black-soft: #222222;
+  --vt-c-black: #051508;
+  --vt-c-black-soft: #1a1c1a;
   --vt-c-black-mute: #282828;
 
   --vt-c-indigo: #2c3e50;
@@ -60,6 +60,7 @@
 
 body {
   min-height: 100vh;
+  width: 100%;
   color: var(--color-text);
   background: var(--color-background);
   transition:
@@ -79,7 +80,6 @@ body {
     'Droid Sans',
     'Helvetica Neue',
     sans-serif;
-  font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
