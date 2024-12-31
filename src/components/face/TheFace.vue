@@ -27,7 +27,9 @@ const classObject = computed(() => ({
     @mouseenter="() => onMouseEnter(side)"
     @mouseleave="onMouseLeave"
   >
-    <div class="face"></div>
+    <div class="face">
+      <slot />
+    </div>
   </div>
 </template>
 
@@ -38,7 +40,7 @@ const classObject = computed(() => ({
   transition: transform 0.3s ease;
   transform-origin: v-bind(side);
   &::after {
-    opacity: 0;
+    opacity: 0.3;
     content: '';
     display: block;
     position: absolute;
@@ -51,12 +53,15 @@ const classObject = computed(() => ({
   }
 
   &:hover {
-    transform: scale(1.3, 1);
+    transform: scale(1.5, 1);
     z-index: 1;
+    &::after {
+      opacity: 0;
+    }
   }
 
   &.hoveringOther {
-    transform: scale(0.7, 1);
+    transform: scale(0.5, 1);
     &::after {
       opacity: 0.7;
     }

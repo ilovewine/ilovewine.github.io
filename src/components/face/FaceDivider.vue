@@ -8,8 +8,8 @@ import TheFace from './TheFace.vue';
 
 <template>
   <section class="container">
-    <TheFace class="face-1" :side="FaceSide.Left" />
-    <TheFace class="face-2" :side="FaceSide.Right" />
+    <TheFace class="dev-face" :side="FaceSide.Left" />
+    <TheFace class="math-face" :side="FaceSide.Right" />
   </section>
 </template>
 
@@ -20,11 +20,11 @@ import TheFace from './TheFace.vue';
   min-height: 100vh;
 }
 
-.face-1 {
-  background-color: #943a3a;
+.dev-face {
+  background-color: var(--color-dev-primary);
 }
 
-.face-2 {
-  background-color: #39a788;
+.math-face {
+  background-color: var(--color-math-primary);
 }
 </style>
