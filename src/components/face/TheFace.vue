@@ -7,10 +7,10 @@ import { computed } from 'vue';
 import useFace from './useFace';
 
 type TheFaceProps = {
-  side?: FaceSide;
+  side: FaceSide;
 };
 
-const { side = FaceSide.Left } = defineProps<TheFaceProps>();
+const { side } = defineProps<TheFaceProps>();
 const { hovering, onMouseLeave, onMouseEnter } = useFace();
 
 const isHoveringOther = computed(() => hovering.value && hovering.value !== side);
@@ -27,20 +27,26 @@ const classObject = computed(() => ({
     @mouseenter="() => onMouseEnter(side)"
     @mouseleave="onMouseLeave"
   >
-    <div class="face">
-      <slot />
+    <div class="face-container">
+      <div class="face">
+        <slot />
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
+@use 'sass:math';
+
 .transition-wrapper {
   flex: 1;
   position: relative;
+  overflow: hidden;
   transition: transform 0.3s ease;
   transform-origin: v-bind(side);
+
   &::after {
-    opacity: 0.3;
+    opacity: 0.2;
     content: '';
     display: block;
     position: absolute;
@@ -48,31 +54,35 @@ const classObject = computed(() => ({
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--color-black);
     transition: opacity 0.3s ease;
   }
 
   &:hover {
     transform: scale(1.5, 1);
-    z-index: 1;
+
     &::after {
       opacity: 0;
     }
-  }
 
-  &.hoveringOther {
-    transform: scale(0.5, 1);
-    &::after {
-      opacity: 0.7;
+    .face-container {
+      transform: scale(math.div(1, 1.5), 1);
     }
   }
 }
 
+.face-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
 .face {
   height: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
 }
 </style>
